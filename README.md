@@ -5,7 +5,7 @@ under dev
     a personal website just for me and night...
     黑夜能带来白天没有的
 
-[night for light](http://121.43.230.104:1048/night)
+[night for light](http://121.43.230.104:2048/night)
 ## 夜晚是宁静的
 
     夜晚是安静的，没有了白天的喧嚣，没有了阳光的刺眼，有的
@@ -30,6 +30,7 @@ under dev
 
     $ python manage.py db init
     $ python manage.py db migrate -m "init"
+    $ python manage.py db upgrade
 
 ## Run
 
