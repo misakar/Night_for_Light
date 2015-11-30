@@ -1,0 +1,10 @@
+*.pyc
+**/*.pyc
+data-dev.sqlite
+
+-1
+
+venv/
+migrations/
+
+
