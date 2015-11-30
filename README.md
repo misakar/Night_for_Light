@@ -1,5 +1,6 @@
 Night For Light
 ===
+under dev
 
     a personal website just for me and night...
     黑夜能带来白天没有的
@@ -37,4 +38,5 @@ Night For Light
 ## Toolkits
 
     flask with mana
+    sqlite3
     bootstrap
