@@ -1,11 +1,12 @@
 # coding: utf-8
 
 import sys
-from flask.ext.script import Manager, Shell
-from flask.ext.migrate import Migrate, MigrateCommand
-from flask.ext.admin import Admin
-from flask.ext.admin.contrib.sqla import ModelView
+from flask_script import Manager, Shell
+from flask_migrate import Migrate, MigrateCommand
+from flask_admin import Admin
+# from flask.ext.admin.contrib.sqla import ModelView
 from app import app, db
+from app.models import Users, Night, Comments
 
 
 # 编码设置
@@ -22,7 +23,10 @@ def make_shell_context():
     """自动加载环境"""
     return dict(
         app = app,
-        db = db
+        db = db,
+        Users = Users,
+        Night = Night,
+        Comments = Comments
     )
 
 
@@ -40,6 +44,24 @@ def test():
     import unittest
     tests = unittest.TestLoader().discover('test')
     unittest.TextTestRunner(verbosity=2).run(tests)
+
+
+@manager.command
+def adduser(username):
+    from getpass import getpass
+    password = getpass('password ')
+    confirm = getpass('comfirm ')
+    if password == confirm:
+        u = Users(
+            username = username,
+            password = password
+        )
+        db.session.add(u)
+        db.session.commit()
+        print "user %s add in database" % username
+    else:
+        print "password not confirmed"
+        sys.exit(0)
 
 
 if __name__ == '__main__':

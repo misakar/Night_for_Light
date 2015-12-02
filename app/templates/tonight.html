@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+{% extends "base.html" %}
+{% block tonight %}
+<div class="jumbotron" style="
+    color:black;">
+    <div>
+        <div style="float:right;text-align:center;">
+            <button type="button" class="btn btn-default">{{ photo.day }}</button><br/>
+            <br/>
+            <button type="button" class="btn btn-primary">{{ photo.time }}</button><br/>
+            <br/>
+            <button type="button" class="btn btn-info">{{ photo.tag }}</button>
+        </div>
+        <div>
+            <img src={{ photo.url }} style="width:90%; height:80%;"/>
+            <hr/>
+            <button type="button" class="btn btn-primary btn-lg btn-block">click here to comment</button>
+        </div>
+
+    </div>
+    <hr/>
+    <div class="alert alert-warning">
+        <a href="#" class="close" data-dismiss="alert">&times;</a>
+        <strong>朱承浩,20151202::</strong> 熬到早上4点才睡!
+    </div>
+</div>
+{% endblock %}

@@ -35,15 +35,22 @@
       <div class="header clearfix">
         <nav>
           <ul class="nav nav-pills pull-right">
-            <li role="presentation" class="active"><a href="#">首夜</a></li>
-            <li role="presentation"><a href="#">今夜</a></li>
+            <li role="presentation" class="active"><a href="/night/">首夜</a></li>
+            <li role="presentation"><a href="/tonight/">今夜</a></li>
             <li role="presentation"><a href="#">日历</a></li>
+              {% if current_user.is_authenticated %}
+                <li role="presentation"><a href="/logout/">登出</a></li>
+              {% else %}
+                <li role="presentation"><a href="/login/">登入</a></li>
+              {% endif %}
           </ul>
         </nav>
         <h3 class="text-muted">夜晚的光</h3>
       </div>
 
       <br/>
+
+      {% block login %}{% endblock %}
 
       {% block tonight %}
       {% endblock %}

@@ -7,7 +7,8 @@
 """
 
 from flask import Flask
-from flask.ext.sqlalchemy import SQLAlchemy
+from flask_sqlalchemy import SQLAlchemy
+from flask_login import LoginManager
 from config import config
 
 
@@ -18,6 +19,7 @@ app.config.from_object(config['default'])
 
 
 db = SQLAlchemy(app)
+login_manager = LoginManager(app)
 
 
 from . import views, models, forms

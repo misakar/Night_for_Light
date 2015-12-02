@@ -13,17 +13,10 @@
     没有了白天的浮躁。<br/>
     就像过去的自己，只会在梦中出现的回忆。<br/>
     </p>
-    <p><a class="btn btn-lg btn-success" href="#" role="button">Sign up tonight</a></p>
-</div>
-{% endblock %}
-
-{% block nights %}
-<div class="row marketing">
-    {% for night in nights %}
-    <div class="col-lg-6">
-        <h4>{{ night.title }}</h4>
-        <p>{{ night.date }}</p>
-    </div>
-    {% endfor %}
+    {% if current_user.is_authenticated %}
+        <p><a class="btn btn-lg btn-success" href="/create/" role="button">Sign up tonight</a></p>
+    {% else %}
+        <p><a class="btn btn-lg btn-success" href="/login/" role="button">Sign up tonight</a></p>
+    {% endif %}
 </div>
 {% endblock %}
